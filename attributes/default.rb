@@ -116,3 +116,14 @@ default[:cassandra][:opscenter][:agent] = {
   :server_role => "opscenter_server",
   :use_ssl => true
 }
+
+# Install java 6
+default['java']['install_flavor']  = "oracle"
+default['java']['jdk_version'] = '6'
+default['java']['oracle']['accept_oracle_download_terms'] = true
+default['java']['accept_license_agreement'] = false # openjdk
+default['java']['set_default'] = true
+
+# x86_64
+default['java']['jdk']['6']['x86_64']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin'
+default['java']['jdk']['6']['x86_64']['checksum'] = '6b493aeab16c940cae9e3d07ad2a5c5684fb49cf06c5d44c400c7993db0d12e8'
