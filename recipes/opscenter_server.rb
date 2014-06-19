@@ -1,4 +1,4 @@
-include_recipe "java"
+#include_recipe "java"
 
 case node["platform_family"]
 when "debian"
@@ -51,4 +51,3 @@ template "/etc/opscenter/opscenterd.conf" do
   mode 0644
   notifies :restart, resources(:service => "opscenterd"), :delayed
 end
-

@@ -21,7 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-include_recipe "java"
+#include_recipe "java"
 
 #
 # User accounts
@@ -47,7 +47,7 @@ td          = Dir.tmpdir
 tmp         = File.join(td, "apache-cassandra-#{node.cassandra.version}-bin.tar.gz")
 tarball_dir = File.join(td, "apache-cassandra-#{node.cassandra.version}")
 
-#if tarball url set to 'auto' use default url 
+#if tarball url set to 'auto' use default url
 #according to node cassandra version
 if node.cassandra.tarball.url == "auto"
     node.default[:cassandra][:tarball][:url] = "http://archive.apache.org/dist/cassandra/#{node[:cassandra][:version]}/apache-cassandra-#{node[:cassandra][:version]}-bin.tar.gz"
@@ -96,7 +96,6 @@ end
     code "mkdir -p #{dir} && chown -R #{node.cassandra.user}:#{node.cassandra.user} #{dir}"
   end
 end
-
 
 # 4. Install config files and binaries
 %w(cassandra.yaml cassandra-env.sh log4j-server.properties).each do |f|
@@ -151,7 +150,6 @@ end
     not_if  "test -L /usr/local/bin/#{f}"
   end
 end
-
 
 # 6. Know Your Limits
 template "/etc/security/limits.d/#{node.cassandra.user}.conf" do

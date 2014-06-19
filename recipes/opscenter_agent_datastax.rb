@@ -1,4 +1,4 @@
-include_recipe "java"
+#include_recipe "java"
 
 case node["platform_family"]
 when "debian"
@@ -46,7 +46,7 @@ if !server_ip
   else
     return # Continue until opscenter will come up
   end
-end 
+end
 
 package "#{node[:cassandra][:opscenter][:agent][:package_name]}" do
   action :install
@@ -56,7 +56,6 @@ service "datastax-agent" do
   supports :restart => true, :status => true
   action [:enable, :start]
 end
-
 
 template "/etc/datastax-agent/address.yaml" do
   mode 0644
