@@ -149,6 +149,7 @@ when "rhel"
     mode      0755
     action    :create
   end
+
   link node.cassandra.conf_dir do
     to        node.default[:cassandra][:conf_dir]
     owner     node.cassandra.user
